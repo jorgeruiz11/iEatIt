@@ -35,37 +35,36 @@ public class ControladorAlimento {
     }
 
     @GetMapping(path="/listar")
-   public String listarAlimentos(Model model) {
-       model.addAttribute("alimentos", repositorioAlimento.findAll());
+    public String listarAlimentos(Model model) {
+        model.addAttribute("alimentos", repositorioAlimento.findAll());
 
-       return "alimentos/listar";
-   }
+        return "alimentos/listar";
+    }
 
-   @GetMapping(path="/actualizar/{id}")
-   public String listarAlimentos(@PathVariable("id") int id, Model model) {
-       model.addAttribute("alimento", repositorioAlimento.findById(id).get());
+    @GetMapping(path="/actualizar/{id}")
+    public String listarAlimentos(@PathVariable("id") int id, Model model) {
+        model.addAttribute("alimento", repositorioAlimento.findById(id).get());
 
-       return "alimentos/actualizar";
-   }
+        return "alimentos/actualizar";
+    }
 
-   @PostMapping(path="/actualizar")
-   public ModelAndView actualizarAlimento(
-       @RequestParam int id,
-       @ModelAttribute Alimento actualizacion) {
-       Alimento alimento = repositorioAlimento.findById(id).get();
-       alimento.setNombre(actualizacion.getNombre());
-       alimento.setPrecio(actualizacion.getPrecio());
-       alimento.setDescripcion(actualizacion.getDescripcion());
-       repositorioAlimento.save(alimento);
+    @PostMapping(path="/actualizar")
+    public ModelAndView actualizarAlimento(
+        @RequestParam int id,
+        @ModelAttribute Alimento actualizacion) {
+        Alimento alimento = repositorioAlimento.findById(id).get();
+        alimento.setNombre(actualizacion.getNombre());
+        alimento.setPrecio(actualizacion.getPrecio());
+        alimento.setDescripcion(actualizacion.getDescripcion());
+        repositorioAlimento.save(alimento);
 
-       return new ModelAndView("redirect:/alimentos/listar");
-   }
+        return new ModelAndView("redirect:/alimentos/listar");
+    }
 
-   @PostMapping(path="/eliminar")
-   public ModelAndView eliminarAlimento(@RequestParam int id) {
-       repositorioAlimento.deleteById(id);
+    @PostMapping(path="/eliminar")
+    public ModelAndView eliminarAlimento(@RequestParam int id) {
+        repositorioAlimento.deleteById(id);
 
-       return new ModelAndView("redirect:/alimentos/listar");
-   }
-
+        return new ModelAndView("redirect:/alimentos/listar");
+    }
 }

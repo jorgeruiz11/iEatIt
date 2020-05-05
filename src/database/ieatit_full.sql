@@ -3,9 +3,9 @@ CREATE DATABASE ieatit;
 CREATE TABLE usuario(
     IdUsuario 			SERIAL PRIMARY KEY,
     Nombre				VARCHAR(50) 	NOT NULL CHECK(nombre NOT SIMILAR TO '%[0-9]'),
-	Paterno				VARCHAR(50) 	NOT NULL CHECK(paterno NOT SIMILAR TO '%[0-9]'),
-	Materno				VARCHAR(50) CHECK(materno NOT SIMILAR TO '%[0-9]'),
-	Genero				CHAR(1)		NOT NULL CHECK( genero IN ('H','M'))
+  	Paterno				VARCHAR(50) 	NOT NULL CHECK(paterno NOT SIMILAR TO '%[0-9]'),
+  	Materno				VARCHAR(50) CHECK(materno NOT SIMILAR TO '%[0-9]'),
+  	Genero				CHAR(1)		NOT NULL CHECK( genero IN ('H','M'))
 );
 
 CREATE TABLE cliente(

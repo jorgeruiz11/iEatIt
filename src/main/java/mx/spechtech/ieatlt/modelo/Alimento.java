@@ -7,7 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Alimento {
-  @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nombre;
@@ -24,35 +24,34 @@ public class Alimento {
     }
 
     public int getId() {
-      return id;
+        return id;
     }
 
     public void setId(int id) {
-      this.id = id;
+        this.id = id;
     }
 
     public String getNombre() {
-      return nombre;
+        return nombre;
     }
 
-    public void setNombre(String nombre) {
-      this.nombre = nombre;
-    }
-
-    public int getPrecio() {
+    public int getPrecio(){
       return precio;
     }
 
-    public void setPrecio(int precio) {
-      this.precio = precio;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public String getDescripcion() {
-      return descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPrecio(int precio){
+        this.precio = precio;
     }
 
     public void setDescripcion(String descripcion) {
-      this.descripcion = descripcion;
+        this.descripcion = descripcion;
     }
-
 }

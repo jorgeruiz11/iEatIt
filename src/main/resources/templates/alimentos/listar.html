@@ -13,14 +13,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link">
-                            Alimentos
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/alimentos/listar"> Categorias </a>
+                    </li>
+                    <li class="nav-item active">
+                      <a class="nav-link">
+                        Alimentos
+                        <span class="sr-only">(current)</span>
+                      </a>
                     </li>
                     <li class="nav-item my-2 my-lg-0">
                         <a class="nav-link" href="#"> Iniciar sesión </a>
@@ -50,7 +50,7 @@
                         <td th:text="${alimento.descripcion}" />
                         <td>
                             <a type="button" class="btn btn-outline-info"
-                                    th:href="@{/alimentos/actualizar/{id}(id=${alimentos.id})}">
+                                    th:href="@{/alimentos/actualizar/{id}(id=${alimento.id})}">
                                 Actualizar
                             </a>
                         </td>
